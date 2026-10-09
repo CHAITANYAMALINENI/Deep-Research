@@ -1,3 +1,5 @@
+import os
+import asyncio
 import gradio as gr
 from dotenv import load_dotenv
 from research_manager import ResearchManager
@@ -35,4 +37,12 @@ with gr.Blocks(title="Deep Research") as ui:
 
 
 if __name__ == "__main__":
-    ui.launch(css=CSS, js=JS, theme=gr.themes.Base())
+    # Render assigns a dynamic port, or fallback to 7860 for local development
+    port = int(os.environ.get("PORT", 7860))
+    ui.launch(
+        server_name="0.0.0.0", 
+        server_port=port,
+        css=CSS, 
+        js=JS, 
+        theme=gr.themes.Base()
+    )
