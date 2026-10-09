@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 MODEL_NAME = os.getenv("DEFAULT_MODEL_NAME", "gpt-5.4-mini")
-USE_EMAIL = os.getenv("USE_EMAIL", "true").lower() == "true"
+# USE_EMAIL = os.getenv("USE_EMAIL", "true").lower() == "true"
+USE_EMAIL = False
 
 settings = ModelSettings(tool_choice="required")
 
